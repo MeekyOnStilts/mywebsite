@@ -1,0 +1,25 @@
+[Adblock Plus 1.1]
+! Checksum: xMvmqahTwdh21gH8MyET3w
+! Version: 202401251431
+! Title: EasyPrivacy
+! Last modified: 25 Jan 2024 14:31 UTC
+! Expires: 1 days (update frequency)
+! Homepage: https://easylist.to/
+! Licence: https://easylist.to/pages/licence.html
+!
+! Please report any unblocked tracking or problems
+! in the forums (https://forums.lanik.us/)
+! or via e-mail (easylist@protonmail.com).
+!
+!-----------------General tracking systems-----------------!
+*.familyzone.com
+
+*.linewize.net
+
+*.limewize.net
+
+*.linewize.com
+
+*.linewize.io
+
+*.familyzone.io
