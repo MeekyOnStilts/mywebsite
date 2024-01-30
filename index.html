@@ -1,26 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Continuously Playing Video</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
-
-    video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Continuous Video Play</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+  }
+  video {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: auto;
+  }
+</style>
 </head>
 <body>
-  <video autoplay loop muted>
-    <source src="Recording.webm" type="video/webm">
-  </video>
+
+<video id="myVideo" width="320" height="240" controls loop>
+  <source src="Recording.webm" type="video/webm">
+  Your browser does not support the video tag.
+</video>
+
+<script>
+  const video = document.getElementById('myVideo');
+  
+  // Function to play the video
+  function playVideo() {
+    video.play();
+  }
+  
+  // Function to pause the video
+  function pauseVideo() {
+    video.pause();
+  }
+  
+  // Event listener to play the video when the tab is active
+  document.addEventListener('visibilitychange', function() {
+    if (document.visibilityState === 'visible') {
+      playVideo();
+    } else {
+      pauseVideo();
+    }
+  });
+  
+  // Event listener to loop the video when it ends
+  video.addEventListener('ended', function() {
+    video.currentTime = 0; // Reset the video to the beginning
+    playVideo(); // Play the video again
+  });
+  
+  // Initial play
+  playVideo();
+</script>
+
 </body>
 </html>
