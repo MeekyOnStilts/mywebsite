@@ -4,7 +4,7 @@ const resultDiv = document.getElementById('result');
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   const extensionId = document.getElementById('extension-id').value;
-  const url = `https://chrome.google.com/webstore/detail/${extensionId}`;
+  const url = `chromewebstore.google.com/detail/grammarly-ai-writing-and/${extensionId}`;
 
   fetch(url, { mode: 'no-cors' })
     .then(response => {
