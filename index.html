@@ -22,7 +22,7 @@
 
             for (const extensionId of extensionIds) {
                 try {
-                    const response = await fetch(`https://chromewebstore.google.com/detail/${extensionId}`);
+                    const response = await fetch(`https://chromewebstore.google.com/detail/grammarly-ai-writing-and/${extensionId}`);
                     if (!response.ok) {
                         throw new Error('Extension not found');
                     }
