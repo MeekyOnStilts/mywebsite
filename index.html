@@ -1,33 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Video Player</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .video-wrapper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        iframe {
-            width: 100%;
-            height: 100%;
-        }
-    </style>
-</head>
-<body>
-    <div class="video-wrapper">
-        <iframe src="https://youtu.be/yrRBzbFm3PY" frameborder="0" allowfullscreen></iframe>
-    </div>
-</body>
+<html>
+  <head>
+    <title>Check Chrome Extension</title>
+  </head>
+  <body>
+    <h1>Check Chrome Extension</h1>
+    <form id="extension-form">
+      <label for="extension-id">Enter Extension ID:</label>
+      <input type="text" id="extension-id" name="extension-id" required>
+      <button type="submit">Check</button>
+    </form>
+    <div id="result"></div>
+    <script src="app.js"></script>
+  </body>
 </html>
