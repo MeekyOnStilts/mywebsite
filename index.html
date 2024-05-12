@@ -1,16 +1,41 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Check Chrome Extension</title>
-  </head>
-  <body>
-    <h1>Check Chrome Extension</h1>
-    <form id="extension-form">
-      <label for="extension-id">Enter Extension ID:</label>
-      <input type="text" id="extension-id" name="extension-id" required>
-      <button type="submit">Check</button>
-    </form>
-    <div id="result"></div>
-    <script src="app.js"></script>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome Extension Name Checker</title>
+</head>
+<body>
+    <h1>Chrome Extension Name Checker</h1>
+    <p>Enter extension IDs to check their names:</p>
+    <textarea id="extensionIds" rows="5" cols="50" placeholder="Enter extension IDs"></textarea><br>
+    <button onclick="checkExtensionNames()">Check Names</button>
+    <div id="results"></div>
+
+    <script>
+        async function checkExtensionNames() {
+            const extensionIdsInput = document.getElementById('extensionIds').value.trim();
+            const extensionIds = extensionIdsInput.split(/\s*,\s*/);
+
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.innerHTML = '';
+
+            for (const extensionId of extensionIds) {
+                try {
+                    const response = await fetch(`https://chrome.google.com/webstore/detail/${extensionId}`);
+                    if (!response.ok) {
+                        throw new Error('Extension not found');
+                    }
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const extensionName = doc.querySelector('h1.e-f-w').textContent.trim();
+                    resultsDiv.innerHTML += `<p><strong>${extensionId}:</strong> ${extensionName}</p>`;
+                } catch (error) {
+                    resultsDiv.innerHTML += `<p><strong>${extensionId}:</strong> Extension not found</p>`;
+                }
+            }
+        }
+    </script>
+</body>
 </html>
